@@ -12,7 +12,7 @@ export const erbPlugin = (): Plugin => {
   return {
     name: 'erb',
     setup(build: PluginBuild) {
-      build.onLoad({ filter: /\.erb$/ }, async (args) => {
+      build.onLoad({ filter: /\.js.erb$/ }, async (args) => {
         const source = await promises.readFile(args.path, 'utf-8');
         const compiledCode = compile(source);
         return {
